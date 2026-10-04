@@ -1,0 +1,18 @@
+[
+    {
+        "name": "mahin",
+        "age": 25,
+        "email": "tokitajwermahin268@gmail.com",
+        "pin": 1234,
+        "account number": 4736,
+        "balance": 0
+    },
+    {
+        "name": "hassan",
+        "age": 23,
+        "email": "hassan@gamil.com",
+        "pin": 2345,
+        "account number": "D1S10!f",
+        "balance": 0
+    }
+]

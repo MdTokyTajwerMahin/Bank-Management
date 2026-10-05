@@ -1,18 +1,26 @@
 [
-    {
-        "name": "mahin",
-        "age": 25,
-        "email": "tokitajwermahin268@gmail.com",
-        "pin": 1234,
-        "account number": 4736,
-        "balance": 0
-    },
-    {
-        "name": "hassan",
-        "age": 23,
-        "email": "hassan@gamil.com",
-        "pin": 2345,
-        "account number": "D1S10!f",
-        "balance": 0
-    }
+  {
+    "name": "hassan",
+    "age": 23,
+    "email": "hassan@gamil.com",
+    "pin": 2345,
+    "account number": "D1S10!f",
+    "balance": 2000
+  },
+  {
+    "name": "Alpha",
+    "age": 25,
+    "email": "Alpha@gmail.com",
+    "pin": 987,
+    "account number": "V15FL*3",
+    "balance": 10000
+  },
+  {
+    "name": "Labib",
+    "age": 30,
+    "email": "Labib12@gmail.com",
+    "pin": 1200,
+    "account number": "4qir*12",
+    "balance": 0
+  }
 ]

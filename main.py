@@ -78,7 +78,112 @@ class Bank:
         print(f"Your new balance is {userdata[0]['balance']}")
         Bank.__update()
 
+    def withdrawmoney(self):
+        accnumber = input("please tell your account number ")
+        pin = int(input("please tell your pin aswell "))
 
+        userdata = [
+            i for i in Bank.data if i["account number"] == accnumber and i["pin"] == pin
+        ]
+        if userdata == False:
+            print("soory no data found")
+
+        else:
+            amount = int(input("how much you want to withdraw "))
+            if userdata[0]["balance"] < amount:
+                print("soory you dont have that much money")
+
+            else:
+
+                userdata[0]["balance"] -= amount
+                Bank.__update()
+                print("Amount withdrew successfully ")
+
+    def showdetails(self):
+        accumber = input("please tell your account number ")
+        pin = int(input("please tell your pin aswell "))
+
+        userdata = [
+            i for i in Bank.data if i["account number"] == accumber and i["pin"] == pin
+        ]
+        print("Your details are :- \n\n")
+        for i in userdata:
+            print(f"Name :- {i['name']}")
+            print(f"Age :- {i['age']}")
+            print(f"Email :- {i['email']}")
+            print(f"Account number :- {i['account number']}")
+            print(f"Balance :- {i['balance']}")
+
+    def updatedetails(self):
+        accumber = input("please tell your account number ")
+        pin = int(input("please tell your pin aswell "))
+
+        userdata = [
+            i for i in Bank.data if i["account number"] == accumber and i["pin"] == pin
+        ]
+        if userdata == False:
+            print("soory no data found")
+        else:
+            print("you cannot update your account number and pin")
+            print("you can update your name, age and email")
+
+            newdata = {
+                "name": input("Enter your name :- "),
+                "age": int(input("Enter your age :- ")),
+                "email": input("Enter your email :- "),
+                "pin": input("Enter your new pin or press enter to skip :- "),
+            }
+
+        if newdata["name"] == "":
+            newdata["name"] = userdata[0]["name"]
+        if newdata["email"] == "":
+            newdata["email"] = userdata[0]["email"]
+        if newdata["pin"] == "":
+            newdata["pin"] = userdata[0]["pin"]
+
+            newdata["age"] = userdata[0]["age"]
+
+            newdata["account number"] = userdata[0]["account number"]
+            newdata["balance"] = userdata[0]["balance"]
+
+            if type(newdata["pin"]) != int:
+                newdata["pin"] = int(newdata["pin"])
+
+                for i in newdata:
+                    if newdata[i] == userdata[0][i]:
+                        continue
+                    else:
+                        newdata[i] = userdata[0][i]
+
+                        Bank.__update()
+                        print("Your details have been updated successfully")
+
+        def updatedetails(self):
+            accumber = input("please tell your account number ")
+            pin = int(input("please tell your pin aswell "))
+
+            userdata = [
+                i
+                for i in Bank.data
+                if i["account number"] == accumber and i["pin"] == pin
+            ]
+
+        if userdata == False:
+            print("sorry no such data exist ")
+        else:
+            check = input(
+                "press y if you actually want to delete the account or press n"
+            )
+            if check == "n" or check == "N":
+                print("bypassed")
+            else:
+                index = Bank.data.index(userdata[0])
+                Bank.data.pop(index)
+                print("account deleted successfully ")
+                Bank.__update()
+
+
+user = Bank()
 print("press 1 for creating an account")
 print("press 2 for Deposititing the money in the bank ")
 print("press 3 for withdrawing the money ")
